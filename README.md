@@ -25,7 +25,7 @@ LRU (least recently used) - это алгоритм, при котором вы�
 
 <b>Пример</b>
 ```
-LRUCache<int, int> lRUCache = new LRUCache(2);
+LRUCache<int, int> lRUCache(2);
 lRUCache.put(1, 1); // кеш равен {1=1}
 lRUCache.put(2, 2); // кеш равен {1=1, 2=2}
 lRUCache.get(1);    // возвращает 1
