@@ -12,9 +12,10 @@ public:
         if(map.count(key) != 0 ){
             int counter = 0;
             for(auto i = 0 ; i < keys.size() ; i++){
-                if(i == key)
+                if(keys[i] == key) {
                     counter = i;
-                break;
+                    break;
+                }
             }
             std::swap(keys[counter],keys[0]);
             return map[key];
@@ -45,8 +46,7 @@ private:
 
 
 int main() {
-    LRUCache<int, int> lRUCache (2);
-//    = new LRUCache(2);
+    LRUCache<int, int> lRUCache (3);
     lRUCache.put(1, 1); // кеш равен {1=1}
     lRUCache.put(2, 2); // кеш равен {1=1, 2=2}
     lRUCache.get(1);    // возвращает 1
@@ -54,5 +54,9 @@ int main() {
     lRUCache.get(2);    // returns std::nullopt (ключ не был найден)
     lRUCache.put(1, 4); // кеш равен {1=4, 3=3}
     lRUCache.put(5, 5); // удаляется ключ 3, т.к. дольше всего не использовался, кеш равен {1=4, 5=5}
+    lRUCache.put(5, 4);
+    lRUCache.get(5);
+    lRUCache.put(4, 4);
+    lRUCache.put(4, 4);
     return 0;
 }
